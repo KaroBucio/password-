@@ -21,20 +21,41 @@ function generatePassword(){
 
 //variables
 var passwordLength;
-
+var includeLc;
+var possiblePasswordChars = "0123456789!@#$%^&*()";
+var lower="abcdefghijklmno";
 
 //seris of prompts
 //prompt for password length 
 passwordLength = parseInt(window.prompt("passwordLength between 8 and 128"))
 console.log("passwordLength = ", passwordLength);
 if (passwordLength < 8 || passwordLength > 128 ){
-  alert("passwordLength must be between 8 and 128. Please try again.");
+  alert("Password Length must be between 8 and 128. Please try again.");
   return("password not generated. Try again.");
-  
 }
+
+// prompt the user if they want to use lowercase in password
+
+includeLc = window.confirm ("Click okay to include lowercase in password.");
+console.log("includeLc = ", includeLc);
+if (includeLc){
+  possiblePasswordChars += lower;
+  console.log("possiblePasswordChars = ", possiblePasswordChars);
+}
+
+
+// prompt the user if they want to use sepcial characters 
+
+possiblePasswordChars = window.confirm ("Click okay to inculde special characters in password.")
+console.log("possiblePasswordChars = ", possiblePasswordChars);
+if (possiblePasswordChars){
+   includeLc += characters;
+   console.log("includeLc = ", includeLc);
 
 }
 
+
+}
 
 // Write password to the #password input
 function writePassword() {
